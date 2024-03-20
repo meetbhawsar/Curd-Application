@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        //- 
+        title Curd Application 
+        link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous')
+        link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+        style 
+          include ../models/style.css 
+    body
+        .bg-info.maindiv
+         .row.h-100.align-items-center
+          .col.md-6.offset-md-3.container.formstyle
+           form(action='/curd', method='post')
+            .form-group
+              lable Name 
+              input.form-control(type="text", name='name' ,placeholder="Enter Your Name")
+            .form-group
+              lable Email
+              input.form-control(type='email', name='email', placeholder='Enter Your Email')
+            .form-row
+             .form-group.md-4
+                lable Mobile
+                input.form-control(type='number', name='mobile', placeholder=' Number') 
+             .form-group.md-4
+                lable City
+                input.form-control(type='text', name='city', placeholder='City')
+            //-  .form-group
+            //-   lable Select Image 
+            //-   input.form-control(type='file', name='upload')
+            .form-group
+              button.btn.btn-info(type='submit')
+                i.fa.fa-database
+                | Submit
+              |  
+              a.btn.btn-danger(href='/viewall')
+                i.fa.fa-list-alt
+                | View All

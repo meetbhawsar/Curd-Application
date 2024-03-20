@@ -1,0 +1,33 @@
+html
+  head
+   link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous')
+   link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/solid.min.css' integrity='sha512-bdTSJB23zykBjGDvyuZUrLhHD0Rfre0jxTd0/jpTbV7sZL8DCth/88aHX0bq2RV8HK3zx5Qj6r2rRU/Otsjk+g==' crossorigin='anonymous' referrerpolicy='no-referrer')
+   style 
+    include ../models/style.css
+  body.bg-info 
+   .bg-info.maindiv
+    table.table.align-middle.mb-0.bg-white.formstyle1
+      thead.bg-light
+        tr
+          //- th Profile 
+          th Name
+          th Email 
+          th Mobile no.
+          th City 
+          th Actions
+      tbody
+       each student, i in students 
+        tr  
+          td= student.name  
+          td= student.email 
+          td= student.mobile 
+          td= student.city 
+          td
+            a.btn.btn-success(type='button')(href='/edit/'+ student._id)
+              | Edit
+            a.btn.btn-danger(type='button')(href='/delete/'+ student._id)
+              | Delete
+            a.btn.btn-success(href='/')
+                | Home
+            
