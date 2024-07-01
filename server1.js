@@ -3,12 +3,20 @@ const path = require("path");
 const app = express();
 const bodyParser = require("body-parser");
 const homeRouters = require("./router/home");
+const dotenv = require("dotenv");
+
+dotenv.config();
+const username = process.env.MONGODB_USERNAME;
+const password = process.env.MONGODB_PASSWORD;
 
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-mongoose.connect("mongodb://127.0.0.1:27017/studentsdetails", {
-  useNewUrlParser: true,
-});
+mongoose.connect(
+  `mongodb+srv://${username}:${password}@cluster0.pvy7lcu.mongodb.net/studentsdetails`,
+  {
+    useNewUrlParser: true,
+  }
+);
 const port = 80;
 const db = mongoose.connection;
 db.on("error", () => {
